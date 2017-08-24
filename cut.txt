@@ -1,0 +1,10 @@
+total 48
+-rw-r--r--  1 pgcudahy  staff    77 Aug 22 14:31 README.md
+drwxr-xr-x  6 pgcudahy  staff   204 Aug 22 14:00 cat_files
+-rw-r--r--  1 pgcudahy  staff     0 Aug 24 11:27 cut.txt
+-rw-r--r--@ 1 pgcudahy  staff  1737 Aug 17 14:24 ex4.py
+-rw-r--r--@ 1 pgcudahy  staff   453 Aug 20 16:40 ex5.py
+-rw-r--r--@ 1 pgcudahy  staff  2754 Aug 22 13:59 ex6.py
+-rw-r--r--@ 1 pgcudahy  staff  1226 Aug 23 14:32 ex7.py
+-rw-r--r--@ 1 pgcudahy  staff   753 Aug 24 11:26 ex8.py
+-rw-r--r--@ 1 pgcudahy  staff     0 Aug 16 12:13 notes.txt
