@@ -10,7 +10,7 @@ import sys
 import re
 import fileinput
 
-parser = argparse.ArgumentParser(description='Copy the cut utility')
+parser = argparse.ArgumentParser(description='Copy the sed utility')
 parser.add_argument('file', nargs='?', default=sys.stdin, 
 					type=argparse.FileType('r'), 
 					help="file(s) to process (in quotes), default is stdin")

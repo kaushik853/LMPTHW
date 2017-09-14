@@ -29,7 +29,8 @@ def mergeLines(files):
 	lines = []
 	for line in files:
 		lines.append(line)
-	return lines
+	return files
+#This seems horribly inefficient
 
 if args.ignoreCase:
 	keySort = str.lower
