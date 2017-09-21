@@ -21,7 +21,7 @@ class SingleLinkedList(object):
 		#print("Counter =", self.counter)
 		if self.counter == 0:
 			#print("Setting begin to",self.node)
-			self.begin = node
+			self.begin = self.end = node
 		#print("Incrementing counter to", self.counter + 1)
 		self.counter += 1
 		#print("Setting end to", self.node)
@@ -51,12 +51,10 @@ class SingleLinkedList(object):
 
 	def shift(self, obj):
 		"""Append to the begining of a list"""
-		node = SingleLinkedListNode(obj, None)
+		node = SingleLinkedListNode(obj, self.begin)
 		if self.counter == 0:
 			self.end = node
 		self.counter += 1
-		if self.begin:
-			node.next = self.begin
 		self.begin = node
 
 	def unshift(self):
@@ -101,10 +99,16 @@ class SingleLinkedList(object):
 			return index
 
 	def first(self):
-		return self.begin.value
+		if not self.begin:
+			return None
+		else:
+			return self.begin.value
 
 	def last(self):
-		return self.end.value
+		if not self.end:
+			return None
+		else:
+			return self.end.value
 
 	def count(self):
 		return self.counter
