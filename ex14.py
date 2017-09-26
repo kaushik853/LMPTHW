@@ -147,8 +147,10 @@ class DoubleLinkedList(object):
 		"""Debugging function that dumps the contents of the list."""
 		self._invariant()
 		if not self.begin:
+			print(mark)
 			print("Empty")
 		else:
+			print(mark)
 			node = self.begin
 			print(node)
 			while node != self.end:
