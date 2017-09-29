@@ -111,3 +111,91 @@ class sorting(object):
 			result.push(right.unshift())
 		return result
 
+	def quick_sort(numbers):
+		if numbers.count() <= 1:
+			return numbers
+		result = DoubleLinkedList()
+
+		#There are many different strategies for picking a pivot
+		#This allows for flexibility in defining the pivot
+		pivot = numbers.end
+
+		#Now send the list to partition() and get back two lists,
+		#one that contains values less than, and one that has 
+		#values greater than the pivot
+		left, right = sorting.partition(numbers, pivot)
+
+		#Prepend the sorted left side to the pivot and append the 
+		#sorted right side
+		sorting.quick_sort(left)
+		while left.count()> 0:
+			result.push(left.unshift())
+		result.push(pivot)
+		sorting.quick_sort(right)
+		while right.count() > 0:
+			result.push(right.unshift())
+		return result
+
+	def partition(numbers, pivot):
+		
+		'''The original partition scheme described by C.A.R. Hoare 
+		uses two indices that start at the ends of the array being 
+		partitioned, then move toward each other, until they detect 
+		an inversion: a pair of elements, one greater than or equal 
+		to the pivot, one lesser or equal, that are in the wrong 
+		order relative to each other. The inverted elements are 
+		then swapped'''
+
+		left = DoubleLinkedList()
+		right = DoubleLinkedList()
+
+		numbers.detach_node(pivot)
+		i = numbers.begin
+		j = numbers.end
+
+		while True:
+			while i.value <= pivot.value:
+				if i == numbers.end:
+					break
+				i = i.next
+	
+			while j.value >= pivot.value:
+				if j == numbers.begin:
+					break
+				j = j.prev
+
+		#Trying to avoid having to tack on index numbers to my
+		#double linked lists. Using a "position()" function to 
+		#calculate the position instead
+
+			if sorting.position(numbers, i) < sorting.position(numbers, j):
+				i.value, j.value = j.value, i.value
+			else:
+				if i.value > pivot.value:
+					split = sorting.position(numbers, i) -1
+				else:
+					split = sorting.position(numbers, i)
+
+				while numbers.count() >0:
+					if split > 0:
+						print("split=",split,"num=",numbers.begin)
+						left.push(numbers.unshift())
+						split -=1
+					else:
+						print("split=",split,"num=",numbers.begin)
+						right.push(numbers.unshift())
+				break
+
+		return left, right
+
+	def position(numbers, node):
+		print("Node passed to position=",node)
+		index = 1
+		place = numbers.begin
+		while node != place:
+			place = place.next
+			index +=1
+		return index
+		
+
+
