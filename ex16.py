@@ -178,18 +178,18 @@ class sorting(object):
 
 				while numbers.count() >0:
 					if split > 0:
-						print("split=",split,"num=",numbers.begin)
+						#print("split=",split,"num=",numbers.begin)
 						left.push(numbers.unshift())
 						split -=1
 					else:
-						print("split=",split,"num=",numbers.begin)
+						#print("split=",split,"num=",numbers.begin)
 						right.push(numbers.unshift())
 				break
 
 		return left, right
 
 	def position(numbers, node):
-		print("Node passed to position=",node)
+		#print("Node passed to position=",node)
 		index = 1
 		place = numbers.begin
 		while node != place:

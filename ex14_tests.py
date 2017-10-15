@@ -100,3 +100,13 @@ def test_get():
 	colors.pop ()
 	assert colors.get(0) == None
 	colors._invariant()
+
+if __name__ == '__main__':
+	test_push()
+	test_pop()
+	test_get()
+	test_last()
+	test_first()
+	test_remove()
+	test_shift()
+	test_unshift()
