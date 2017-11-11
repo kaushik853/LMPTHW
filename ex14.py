@@ -130,18 +130,26 @@ class DoubleLinkedList(object):
 		return self.counter
 
 	def get(self, index):
-		"""Get the value at index."""
+		"""Get the value at index. (1 based indexing)"""
 		self._invariant()
 		if not self.begin:
 			return None
-		if index > self.count() - 1:
+		if index > self.count():
 			return None
-		node = self.begin
-		counter = 0
-		while counter < index:
-			node = node.next
-			counter +=1
-		return node.value
+		if index < self.count()/2:
+			node = self.begin
+			counter = 1
+			while counter < index:
+				node = node.next
+				counter +=1
+			return node.value
+		else:
+			node = self.end
+			counter = self.count()
+			while counter > index:
+				node = node.prev
+				counter -=1
+			return node.value
 
 	def dump(self, mark):
 		"""Debugging function that dumps the contents of the list."""

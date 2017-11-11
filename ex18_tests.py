@@ -1,6 +1,8 @@
 from ex16 import *
 from ex14 import DoubleLinkedList
 from random import randint
+import sys
+sys.setrecursionlimit(10000)
 max_numbers = 900
 
 def random_list(count):
@@ -33,7 +35,6 @@ def is_sorted(numbers):
 
 def test_bubble_sort():
 	numbers = random_list(max_numbers)
-	#numbers.dump('test_bubble_sort')
 	sorting.bubble_sort(numbers)
 
 	assert is_sorted(numbers)
@@ -76,7 +77,39 @@ def test_quick_sort():
 	sorting.quick_sort(numbers3)
 	assert is_sorted(numbers3)
 
-if __name__ == '__main__':
-	test_bubble_sort()
-	test_merge_sort()
-	test_quick_sort()
+def test_quick_sort2():
+	numbers = random_list(max_numbers)
+
+	sorting.quick_sort2(numbers)
+
+	assert is_sorted(numbers)
+
+	numbers2 = presorted_list(max_numbers)
+	sorting.quick_sort2(numbers2)
+	assert is_sorted(numbers2)
+
+	numbers3 = homogenous_list(max_numbers)
+	sorting.quick_sort2(numbers3)
+	assert is_sorted(numbers3)
+
+def test_quick_sort3():
+	numbers = random_list(max_numbers)
+
+	sorting.quick_sort3(numbers)
+
+	assert is_sorted(numbers)
+
+	numbers2 = presorted_list(max_numbers)
+	sorting.quick_sort3(numbers2)
+	assert is_sorted(numbers2)
+
+	numbers3 = homogenous_list(max_numbers)
+	sorting.quick_sort3(numbers3)
+	assert is_sorted(numbers3)
+
+# if __name__ == '__main__':
+	# test_bubble_sort()
+	# test_merge_sort()
+	# test_quick_sort()
+	# test_quick_sort2()
+	# test_quick_sort3()
